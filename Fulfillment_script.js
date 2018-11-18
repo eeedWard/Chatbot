@@ -1,3 +1,5 @@
+// fulfillment script for dialogflow
+
 'use strict';
  
 const functions = require('firebase-functions');
@@ -24,8 +26,9 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
   function ReqHandler(agent) {
 
     const degree_type = agent.parameters.degree;
-    const endingSentence = `\nAnyway, good luck with your ${degree_type} application!!`
+    const endingSentence = `\nAnyway, good luck with your ${degree_type} application!!` //ending sentence for each statement
 
+    // different cases for different entities
     if (degree_type == "Master") {
       agent.add("Our Master degrees are very competitive. You need good grades, reference letters and a strong application" + endingSentence);
     }
